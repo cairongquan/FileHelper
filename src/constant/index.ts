@@ -1,0 +1,22 @@
+// 文件type映射表
+export const suffixMapper: Record<string, string> = {
+  jpg: "image/jepg",
+  jpeg: "image/jepg",
+  png: "image/png",
+  gif: "image/gif",
+  bmp: "image/bmp",
+  webp: "image/webp",
+  mp3: "audio/mpeg",
+  wav: "audio/wav",
+  ogg: "audio/ogg",
+  mp4: "video/mp4",
+  webm: "video/webm",
+  ogv: "video/ogg",
+  pdf: "application/pdf",
+  zip: "application/zip",
+  json: "application/json",
+  xml: "application/xml",
+  xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  xls: "application/vnd.ms-excel",
+  ods: "application/vnd.oasis.opendocument.spreadsheet",
+};
