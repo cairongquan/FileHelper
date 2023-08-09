@@ -55,6 +55,24 @@
       return suffixMapper[suffix];
   });
 
+  var FileExample = /** @class */ (function () {
+      function FileExample(blobUrl) {
+          this.url = blobUrl;
+      }
+      FileExample.prototype.remove = function () {
+          this.url && window.URL.revokeObjectURL(this.url);
+          this.url = null;
+      };
+      FileExample.prototype.download = function (fileName) {
+          var downLoadLinkDom = document.createElement('a');
+          downLoadLinkDom.style.display = 'none';
+          downLoadLinkDom.href = this.url !== null && this.url || '';
+          downLoadLinkDom.download = fileName || '';
+          downLoadLinkDom.click();
+      };
+      return FileExample;
+  }());
+
   var stepArray = [blobToUrl, fileToUrl, arrayBufferToUrl];
   function blobToUrl(dataSource) {
       if (isBlob(dataSource)) {
@@ -78,7 +96,6 @@
       throw Error;
   }
   function fileHelper(option) {
-      console.log('target');
       var url = '';
       for (var i = 0; i < stepArray.length - 1; i++) {
           try {
@@ -89,8 +106,7 @@
               continue;
           }
       }
-      console.log(url, 111);
-      return url;
+      return new FileExample(url);
   }
 
   exports.fileHelper = fileHelper;

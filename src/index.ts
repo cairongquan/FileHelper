@@ -4,6 +4,8 @@ import turnBlobToUrl from './module/turnBlobToUrl'
 import isArrayBuffer from './module/isArrayBuffer'
 import getSuffixType from './module/getSuffixType'
 
+import FileExample from './module/fileExample'
+
 import { type FileHelperT, type suffix } from '../types/index'
 
 const stepArray = [blobToUrl, fileToUrl, arrayBufferToUrl]
@@ -33,7 +35,6 @@ function arrayBufferToUrl(dataSource: any, type?: suffix): string | Error {
 }
 
 export function fileHelper(option: FileHelperT.FileHelperOption) {
-  console.log('target')
   let url: string = ''
   for (let i = 0; i < stepArray.length - 1; i++) {
     try {
@@ -43,6 +44,5 @@ export function fileHelper(option: FileHelperT.FileHelperOption) {
       continue
     }
   }
-  console.log(url, 111)
-  return url
+  return new FileExample(url)
 }

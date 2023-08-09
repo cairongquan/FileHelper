@@ -10,6 +10,5 @@ module.exports = {
     sourcemap: true,
     format: "umd",
   },
-
   plugins: [ts()],
 };
