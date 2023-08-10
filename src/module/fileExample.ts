@@ -4,7 +4,6 @@ export default class FileExample {
     this.url = blobUrl
   }
   remove() {
-    console.log(this.url, this, 111)
     this.url && window.URL.revokeObjectURL(this.url);
   }
   download(fileName?: string) {
@@ -13,7 +12,6 @@ export default class FileExample {
     downLoadLinkDom.href = this.url !== null && this.url || ''
     downLoadLinkDom.download = fileName || ''
     downLoadLinkDom.click();
-    console.log(this, 111)
     return this
   }
 }
